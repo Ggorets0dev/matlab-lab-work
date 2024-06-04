@@ -4,6 +4,6 @@ function internal_method(a, b, y2)
     figure(3)
     grid on;
     plot(x, y)
-    title('Встроенные средства MATLAB')
+    title('Р’СЃС‚СЂРѕРµРЅРЅС‹Рµ СЃСЂРµРґСЃС‚РІР° MATLAB')
 end
 

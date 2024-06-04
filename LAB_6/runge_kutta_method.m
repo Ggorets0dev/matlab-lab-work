@@ -17,6 +17,6 @@ function runge_kutta_method(h, x, y2)
     figure(2)
     grid on;
     plot(x, y)
-    title('Метод Рунге-Кутты 4-го порядка')
+    title('РњРµС‚РѕРґ Р СѓРЅРіРµ-РљСѓС‚С‚С‹ 4-РіРѕ РїРѕСЂСЏРґРєР°')
 end
 

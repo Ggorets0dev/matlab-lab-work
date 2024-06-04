@@ -10,5 +10,5 @@ function explicit_eulor_method(h, x, y2)
 
     figure(1);
     plot(x, y)
-    title('Явный метод Эйлера')
+    title('РЇРІРЅС‹Р№ РјРµС‚РѕРґ Р­Р№Р»РµСЂР°')
 end
