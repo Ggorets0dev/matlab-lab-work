@@ -5,15 +5,14 @@ clc
 
 a = -2.5;
 b = -1;
-e = 0.0001;
-d = 0.1*e;
+ep = 0.0001;
+d = 0.1*ep;
 
 iter_cnt = 0; 
 func_cnt = 0;
 
-xx = a:e:b;
+xx = a:ep:b;
 Fx = var_func(xx);
-
 figure(4)
 plot(xx,Fx)
 
@@ -22,7 +21,7 @@ fb = var_func(b);
 func_cnt = func_cnt + 2;
 
 t = (sqrt(5)-1)/2
-while (b-a)/2>e
+while (b-a) / 2 > ep
     x2=a+t*(b-a);
     f2=var_func(x2);
     x1=a+b-x2;

@@ -5,17 +5,14 @@ clc
 
 a = -2.5;
 b = -1;
-e = 0.0001;
-N = (b - a) / e;
-h = e;
+ep = 0.0001;
+N = (b - a) / ep;
 
 func_cnt = 0;
 iter_cnt = 0;
 
-xx = a:h:b;
-
+xx = a:ep:b;
 Fx = var_func(xx);
-
 figure(1)
 plot(xx, Fx)
 
