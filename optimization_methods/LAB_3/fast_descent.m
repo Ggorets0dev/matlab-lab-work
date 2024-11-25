@@ -1,35 +1,32 @@
 clc;
-
 %% Метод наискорейшего спуска
+% Минимизация через матрицу Гессе
 
-x = [0; 0]; 
-
-a_lower = -10;
-a_upper = 10;
+x = [0; 0];
 
 % Счетчики
 func_cnt = 0;
 iter_cnt = 0;
 grad_cnt = 0;
 
-% Буферы приема подсчета из функции поиска альфа
-func_cnt_a = 0;
-iter_cnt_a = 0;
-grad_cnt_a = 0;
-
-grad = grad_f(x);
-grad_cnt = grad_cnt + 1;
-
-while norm(grad) >= eps
-    [alpha, iter_cnt_a, func_cnt_a, grad_cnt_a] = find_alpha(x, a_lower, a_upper);
-    x = x - alpha * grad;
+while true
     grad = grad_f(x);
+    grad_cnt = grad_cnt + 1;
 
-    func_cnt = func_cnt + func_cnt_a;
-    grad_cnt = grad_cnt + grad_cnt_a + 1;
-    iter_cnt = iter_cnt + iter_cnt_a + 1;
+    n_grad = sqrt(grad(1)^2 + grad(2)^2);
+    
+    if n_grad < eps
+        break
+    end
+  
+   num_a = dot(grad, grad);
+   denum_a = dot(grad, G_matr * grad);
+   alpha = num_a / denum_a;
+   x = x - alpha * grad;
+   
+   iter_cnt = iter_cnt + 1;
 end
- 
+
 % Вывод результатов
 disp('Минимум найден:');
 disp(['x1 = ', num2str(x(1))]);

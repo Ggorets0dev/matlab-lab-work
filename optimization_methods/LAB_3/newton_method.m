@@ -4,8 +4,7 @@ clc;
 
 x = [0; 0]; 
 
-G_matr = [90 -88; -88 90]; % Матрица Гессе
-G_matr_inv = inv(G_matr);
+G_matr = [90 -88; -88 90]; % Матрица Гессе (вычисляется вручную)
 
 % Счетчики
 func_cnt = 0;
@@ -16,7 +15,7 @@ grad = grad_f(x);
 grad_cnt = grad_cnt + 1;
  
 while norm(grad) > eps
-    x = x - G_matr_inv * grad;
+    x = x - G_matr \ grad;
     grad = grad_f(x);
     
     grad_cnt = grad_cnt + 1;
